@@ -45,6 +45,7 @@
   <script type="module" src="scripts/modules/radar.mjs"></script>
   <script type="module" src="scripts/modules/settings.mjs"></script>
 	<script type="module" src="scripts/index.mjs"></script>
+  <script type="module" src="scripts/audioplayer.js"></script>
 
   <!-- data -->
   <script type="text/javascript" src="scripts/data/travelcities.js"></script>
@@ -131,6 +132,7 @@
         <img id="NavigateRefresh" class="navButton" src="images/nav/ic_refresh_white_24dp_2x.png" title="Refresh" />
       </div>
       <div id="divTwcBottomRight">
+        <img id="ToggleVolume" class="navButton" src="images/nav/ic_volume_up_white_24dp_2x.png" title="Mute" />
         <img id="ToggleFullScreen" class="navButton" src="images/nav/ic_fullscreen_white_24dp_2x.png" title="Enter Fullscreen" />
       </div>
     </div>
@@ -163,6 +165,7 @@
     <input id="chkAutoRefresh" name="chkAutoRefresh" type="checkbox" /><label id="lblRefreshCountDown" for="chkAutoRefresh">Auto Refresh: <span id="spanRefreshCountDown">--:--</span></label>
   </div>
 
+  <audio id="audioPlayer" preload="none"></audio>
 </body>
 
 </html>

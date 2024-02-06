@@ -19,6 +19,17 @@ const outlookPassThru = require('./cors/outlook');
 app.get('/stations/*', corsPassThru);
 app.get('/Conus/*', radarPassThru);
 app.get('/products/*', outlookPassThru);
+app.get('/audio-files', (req, res) => {
+	const audioDir = path.join(__dirname, './server/audio');
+	fs.readdir(audioDir, (err, files) => {
+		if (err) {
+			console.error(err);
+			res.status(500).send('Error reading audio directory');
+		} else {
+			res.json(files);
+		}
+	});
+});
 
 // version
 const { version } = JSON.parse(fs.readFileSync('package.json'));
@@ -36,6 +47,7 @@ if (process.env?.DIST === '1') {
 	app.use('/images', express.static(path.join(__dirname, './server/images')));
 	app.use('/fonts', express.static(path.join(__dirname, './server/fonts')));
 	app.use('/scripts', express.static(path.join(__dirname, './server/scripts')));
+	app.use('/audio', express.static(path.join(__dirname, './server/audio')));
 	app.use('/', express.static(path.join(__dirname, './dist')));
 } else {
 	// debugging
