@@ -33,22 +33,21 @@ audioPlayer.addEventListener('volumechange', () => {
 	volumeToggle.src = audioPlayer.muted ? 'images/nav/ic_volume_off_white_24dp_2x.png' : 'images/nav/ic_volume_up_white_24dp_2x.png';
 });
 
-// const volumeSlider = document.querySelector('#VolumeSlider');
+const volumeSlider = document.querySelector('#VolumeSlider');
 
 volumeToggle.addEventListener('click', () => {
 	if (audioPlayer.muted) {
 		audioPlayer.muted = false;
-		// volumeSlider.style.display = 'block';
 		if (wasAutoplayBlocked) {
 			audioPlayer.play();
 			wasAutoplayBlocked = false;
 		}
 	} else {
 		audioPlayer.muted = true;
-		// volumeSlider.style.display = 'none';
 	}
 });
 
-// volumeSlider.addEventListener('input', () => {
-// 	audioPlayer.volume = volumeSlider.value;
-// });
+volumeSlider.addEventListener('input', () => {
+	audioPlayer.volume = volumeSlider.value;
+	audioPlayer.muted = !(volumeSlider.value > 0);
+});
