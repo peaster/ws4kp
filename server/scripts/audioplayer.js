@@ -18,18 +18,14 @@ fetch('/audio-files')
 	})
 	.catch((error) => console.error('Error:', error));
 
-// Get a reference to the volume toggle button
 const volumeToggle = document.querySelector('#ToggleVolume');
 
-// Add an event listener to the volume toggle button
 volumeToggle.addEventListener('click', () => {
-	// If the audio player is currently muted, unmute it
 	if (audioPlayer.muted) {
 		audioPlayer.muted = false;
-		volumeToggle.src = 'images/nav/ic_volume_up_white_24dp_2x.png'; // Change the icon to the volume on icon
-	} else { // Move the else to the same line as the closing brace of the if block
-		// Otherwise, mute the audio player
+		volumeToggle.src = 'images/nav/ic_volume_up_white_24dp_2x.png';
+	} else {
 		audioPlayer.muted = true;
-		volumeToggle.src = 'images/nav/ic_volume_off_white_24dp_2x.png'; // Change the icon to the volume off icon
+		volumeToggle.src = 'images/nav/ic_volume_off_white_24dp_2x.png';
 	}
 });
