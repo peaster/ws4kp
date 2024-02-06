@@ -81,6 +81,62 @@ const init = () => {
 		return false;
 	};
 
+	const urlParams = new URLSearchParams(window.location.search);
+	const fullscreen = urlParams.get('fullscreen');
+
+	if (fullscreen === 'true') {
+		window.onload = () => {
+			enterFullScreen();
+		};
+	}
+
+	const location = urlParams.get('location');
+	const DROPDOWN_MENU_SELECTOR = '.autocomplete-suggestions';
+	const DROPDOWN_ITEM_SELECTOR = '.autocomplete-suggestion';
+
+	if (location) {
+		const txtAddress = document.querySelector(TXT_ADDRESS_SELECTOR);
+		txtAddress.value = location;
+
+		// Set focus on the text box to trigger the dropdown
+		txtAddress.focus();
+
+		let continueLoop = true;
+
+		const checkDropdown = setInterval(() => {
+			if (!continueLoop) {
+				clearInterval(checkDropdown);
+				return;
+			}
+
+			const dropdownMenu = document.querySelector(DROPDOWN_MENU_SELECTOR);
+			if (dropdownMenu) {
+				// If the dropdown is visible, select the first item and trigger the enter key
+				const firstItem = dropdownMenu.querySelector(DROPDOWN_ITEM_SELECTOR);
+				if (firstItem) {
+					firstItem.click();
+
+					setTimeout(() => {
+						const enterKeyEvent = new KeyboardEvent('keydown', {
+							bubbles: true,
+							cancelable: true,
+							key: 'Enter',
+							code: 'Enter',
+							keyCode: 13,
+						});
+						txtAddress.dispatchEvent(enterKeyEvent);
+
+						continueLoop = false;
+						setTimeout(() => {
+							// Close out of options menu that appears when changing location
+							postMessage('navButton', 'play');
+						}, 1000);
+					}, 100);
+				}
+			}
+		}, 100);
+	}
+
 	// Auto load the previous query
 	const query = localStorage.getItem('latLonQuery');
 	const latLon = localStorage.getItem('latLon');
