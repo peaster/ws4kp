@@ -369,7 +369,12 @@ const startAutoRefreshTimer = () => {
 		document.querySelector('#spanRefreshCountDown').innerHTML = `${dt.getMinutes().toString().padStart(2, '0')}:${dt.getSeconds().toString().padStart(2, '0')}`;
 
 		// Time has elapsed.
-		if (AutoRefreshCountMs >= AUTO_REFRESH_TIME_MS && !isPlaying()) loadTwcData();
+		if (AutoRefreshCountMs >= AUTO_REFRESH_TIME_MS && !isPlaying()) {
+			loadTwcData();
+			setTimeout(() => {
+				handleNavButton('play'); // TODO: Auto refresh, so start playing again. Currently a work around for the progress screen getting stuck sometimes.
+			}, 100);
+		}
 	};
 	AutoRefreshIntervalId = window.setInterval(AutoRefreshTimer, AUTO_REFRESH_INTERVAL_MS);
 	AutoRefreshTimer();
