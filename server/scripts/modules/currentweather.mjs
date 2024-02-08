@@ -43,7 +43,7 @@ class CurrentWeather extends WeatherDisplay {
 				// station observations
 				// eslint-disable-next-line no-await-in-loop
 				observations = await json(`${station.id}/observations`, {
-					cors: true,
+					cors: false, // Setting to true causes issues with some older devices
 					data: {
 						limit: 2,
 					},
