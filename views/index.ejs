@@ -47,7 +47,9 @@
   <script type="module" src="scripts/modules/radar.mjs"></script>
   <script type="module" src="scripts/modules/settings.mjs"></script>
 	<script type="module" src="scripts/index.mjs"></script>
-  <script type="module" src="scripts/audioplayer.js"></script>
+  <% if (audioDirExists) { %>
+    <script type="module" src="scripts/audioplayer.js"></script>
+  <% } %>
 
   <!-- data -->
   <script type="text/javascript" src="scripts/data/travelcities.js"></script>
@@ -136,8 +138,8 @@
         <img id="NavigateRefresh" class="navButton" src="images/nav/ic_refresh_white_24dp_2x.png" title="Refresh" />
       </div>
       <div id="divTwcBottomRight">
-        <img id="ToggleVolume" class="navButton" src="images/nav/ic_volume_up_white_24dp_2x.png" title="Mute" />
-        <input type="range" id="VolumeSlider" min="0" max="1" step="0.01" value="1" />
+        <img id="ToggleVolume" class="navButton" src="images/nav/ic_volume_up_white_24dp_2x.png" title="Mute" style="display: none;"/>
+        <input type="range" id="VolumeSlider" min="0" max="1" step="0.01" value="1"  style="display: none;"/>
         <img id="ToggleFullScreen" class="navButton" src="images/nav/ic_fullscreen_white_24dp_2x.png" title="Enter Fullscreen" />
       </div>
     </div>

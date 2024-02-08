@@ -35,6 +35,9 @@ audioPlayer.addEventListener('volumechange', () => {
 
 const volumeSlider = document.querySelector('#VolumeSlider');
 
+volumeToggle.style.display = 'inline-block';
+volumeSlider.style.display = 'inline-block';
+
 volumeToggle.addEventListener('click', () => {
 	if (audioPlayer.muted) {
 		audioPlayer.muted = false;

@@ -39,6 +39,7 @@ const index = (req, res) => {
 		production: false,
 		version,
 		customScriptExists: fs.existsSync(path.join(__dirname, './server/scripts/custom.js')),
+		audioDirExists: fs.existsSync(path.join(__dirname, './server/audio')),
 	});
 };
 
