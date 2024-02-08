@@ -29,9 +29,10 @@ const wideScreenChange = (value) => {
 	}
 };
 
-const hideBrandingChange = (value) => {
-	const logo = document.querySelector('.logo');
-	logo.style.display = value ? 'none' : 'block';
-};
+function hideBrandingChange(value) {
+	document.querySelectorAll('.logo').forEach((logo) => {
+		logo.style.display = value ? 'none' : 'block';
+	});
+}
 
 export default settings;
