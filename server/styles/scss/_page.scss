@@ -165,11 +165,9 @@ body {
 }
 
 #divTwcBottom {
-	/* visibility: hidden; */
-	display: flex;
-  justify-content: center;
-  align-items: center;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr;
+
 	background-color: #000000;
 
 	@media (prefers-color-scheme: dark) {
@@ -183,39 +181,23 @@ body {
 #divTwcBottom>div {
 	padding-left: 6px;
 	padding-right: 6px;
+
+	display: flex;
 }
 
 #divTwcBottomLeft {
-	display: flex;
-	text-align: left;
-	flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  min-width: 0;
-	align-items: center;
-	justify-content: flex-start;
+  grid-column: 1;
+  justify-self: start;
 }
 
 #divTwcBottomMiddle {
-	display: flex;
-	text-align: center;
-	flex-grow: 1;
-	flex-shrink: 0;
-	flex-basis: auto;
-	min-width: 0;
-	align-items: center;
-	justify-content: center;
+  grid-column: 2;
+  justify-self: center;
 }
 
 #divTwcBottomRight {
-	display: flex;
-	text-align: right;
-	flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  min-width: 0;
-	align-items: center;
-	justify-content: flex-end;
+  grid-column: 3;
+  justify-self: end;
 }
 
 #divTwcNavContainer {
