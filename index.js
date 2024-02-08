@@ -38,6 +38,7 @@ const index = (req, res) => {
 	res.render(path.join(__dirname, 'views/index'), {
 		production: false,
 		version,
+		customScriptExists: fs.existsSync(path.join(__dirname, './server/scripts/custom.js')),
 	});
 };
 
