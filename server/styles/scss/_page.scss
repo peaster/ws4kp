@@ -361,6 +361,11 @@ body {
 
 #settings {
 	margin-bottom: 15px;
+
+	label {
+		display: block;
+		max-width: 300px;
+	}
 }
 
 #enabledDisplays {

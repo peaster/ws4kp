@@ -9,6 +9,7 @@ const settings = {};
 const init = () => {
 	// create settings
 	settings.wide = new Setting('wide', 'Widescreen', 'boolean', false, wideScreenChange);
+	settings.hideBranding = new Setting('hideBranding', 'Hide Branding', 'boolean', false, hideBrandingChange);
 
 	// generate checkboxes
 	const checkboxes = Object.values(settings).map((d) => d.generateCheckbox());
@@ -26,6 +27,11 @@ const wideScreenChange = (value) => {
 	} else {
 		container.classList.remove('wide');
 	}
+};
+
+const hideBrandingChange = (value) => {
+	const logo = document.querySelector('.logo');
+	logo.style.display = value ? 'none' : 'block';
 };
 
 export default settings;
