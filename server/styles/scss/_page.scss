@@ -170,9 +170,9 @@ body {
 }
 
 #divTwcBottom {
-	/* visibility: hidden; */
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr;
+
 	background-color: #000000;
 
 	@media (prefers-color-scheme: dark) {
@@ -186,21 +186,23 @@ body {
 #divTwcBottom>div {
 	padding-left: 6px;
 	padding-right: 6px;
+
+	display: flex;
 }
 
 #divTwcBottomLeft {
-	flex: 1;
-	text-align: left;
+  grid-column: 1;
+  justify-self: start;
 }
 
 #divTwcBottomMiddle {
-	flex: 0;
-	text-align: center;
+  grid-column: 2;
+  justify-self: center;
 }
 
 #divTwcBottomRight {
-	flex: 1;
-	text-align: right;
+  grid-column: 3;
+  justify-self: end;
 }
 
 #divTwcNavContainer {
@@ -351,6 +353,11 @@ body {
 
 #settings {
 	margin-bottom: 15px;
+
+	label {
+		display: block;
+		max-width: 300px;
+	}
 }
 
 #enabledDisplays,

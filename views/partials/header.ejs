@@ -14,6 +14,11 @@
 				<%-title %>
 			</div>
 			<% } %>
+			<% if (locals?.overwriteRight) { %>
+				<div class="right">
+					<%- overwriteRight %>
+				</div>
+			<% } else { %>
 				<% if (locals?.hasTime) { %>
 					<div class="date-time date"></div>
 					<div class="date-time time"></div>
@@ -25,4 +30,5 @@
 								<img src="images/noaa5.gif" />
 							</div>
 							<%}%>
+			<% } %>
 </div>

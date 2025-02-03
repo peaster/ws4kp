@@ -31,7 +31,10 @@ To run via Docker:
 ```
 docker run -p 8080:8080 ghcr.io/netbymatt/ws4kp
 ```
+Optional: Bind a folder full of mp3s to `/app/server/audio` to enable the music player.
+
 Open your web browser: http://localhost:8080/ 
+
 
 ## Updates in 5.0
 The change to 5.0 changes from drawing the weather graphics on canvas elements and instead uses HTML and CSS to style all of the weather graphics. A lot of other changes and fixes were implemented at the same time.
